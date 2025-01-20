@@ -11,13 +11,17 @@
       href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap"
       rel="stylesheet"
     />
+    <!-- css -->
     <link rel="stylesheet" href="src/style.css" />
+    <!-- axios -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
   <body>
     <div class="main-container">
       <!-- Logo & Title -->
       <header class="header-container">
-        <h1><span class="title-icon">🌻</span>Vanilla Weather</h1>
+        <div class="title-icon">🌻</div>
+        <h1>Vanilla Weather</h1>
       </header>
 
       <!-- Input form -->
@@ -34,11 +38,16 @@
       <!-- Current weather -->
       <main class="current-weather-container">
         <div class="left-box">
-          <h2>San Francisco</h2>
+          <h2 class="current-city">Paris</h2>
           <p><span>Day</span> <span>Time</span>, <span>Details</span></p>
           <p>
-            Humidity: <span class="humidity-wrap"><span>xx</span>%</span>, Wind:
-            <span class="wind-wrap"><span>xx</span>km/h</span>
+            Humidity:
+            <span class="humidity-wrap"
+              ><span class="current-humidity">xx</span>%</span
+            >, Wind:
+            <span class="wind-wrap"
+              ><span class="current-wind">xx</span>km/h</span
+            >
           </p>
         </div>
 
@@ -54,10 +63,13 @@
 
       <!-- Foorter -->
       <footer class="footer-container">
-        This project was coded by Yuki and is on
-        <a href="#" target="_blank">GitHub</a> and hosted by
-        <a href="#" target="_blank">Netlify</a>.
+        <p>
+          This project was coded by Yuki and is on
+          <a href="#" target="_blank">GitHub</a> and hosted by
+          <a href="#" target="_blank">Netlify</a>.
+        </p>
       </footer>
     </div>
+    <script src="src/app.js"></script>
   </body>
 </html>
