@@ -4,42 +4,60 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather App Vanilla JS</title>
+    <!-- Google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="src/style.css" />
   </head>
   <body>
-    <header>
-      <h1>Vanilla Weather App</h1>
-    </header>
+    <div class="main-container">
+      <!-- Logo & Title -->
+      <header class="header-container">
+        <h1><span class="title-icon">🌻</span>Vanilla Weather</h1>
+      </header>
 
-    <!-- Input form -->
-    <div class="search-input">
-      <form>
-        <input type="text" placeholder="Enter a City.." />
-        <input type="submit" value="Search" />
+      <!-- Input form -->
+      <form class="form-container">
+        <input
+          type="text"
+          placeholder="Enter a City.."
+          autofocus
+          id="search-input"
+        />
+        <input type="submit" value="Search" id="search-button" />
       </form>
+
+      <!-- Current weather -->
+      <main class="current-weather-container">
+        <div class="left-box">
+          <h2>San Francisco</h2>
+          <p><span>Day</span> <span>Time</span>, <span>Details</span></p>
+          <p>
+            Humidity: <span class="humidity-wrap"><span>xx</span>%</span>, Wind:
+            <span class="wind-wrap"><span>xx</span>km/h</span>
+          </p>
+        </div>
+
+        <div class="right-box">
+          <div class="current-icon">☀️</div>
+          <p class="current-temperature">13</p>
+          <p>°C</p>
+        </div>
+      </main>
+
+      <!-- Upcoming weather -->
+      <div></div>
+
+      <!-- Foorter -->
+      <footer class="footer-container">
+        This project was coded by Yuki and is on
+        <a href="#" target="_blank">GitHub</a> and hosted by
+        <a href="#" target="_blank">Netlify</a>.
+      </footer>
     </div>
-
-    <!-- Current weather -->
-    <main>
-      <div class="left-box">
-        <h2>San Francisco</h2>
-        <p><span>Day</span> <span>Time</span>, <span>Details</span></p>
-        <p>Humidity<span>percentage</span>%, Wind: <span>3.13</span>km/h</p>
-      </div>
-
-      <div class="right-box">
-        <div class="current-icon">☀️</div>
-        <div><span>13</span>°C</div>
-      </div>
-    </main>
-
-    <!-- Upcoming weather -->
-    <div></div>
-
-    <!-- Foorter -->
-    <footer>
-      This project was coded by Yuki and is on
-      <a href="#" target="_blank">GitHub</a> and hosted by
-      <a href="#" target="_blank">Netlify</a>.
-    </footer>
   </body>
 </html>
