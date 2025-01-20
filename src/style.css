@@ -64,7 +64,7 @@ h1 {
   outline-color: #81bfda;
 }
 
-#search-button {
+.search-button {
   width: 20%;
   text-transform: uppercase;
   border-radius: 10px;
@@ -77,12 +77,12 @@ h1 {
   transition: all 200ms ease-in-out;
 }
 
-#search-button:hover {
+.search-button:hover {
   cursor: pointer;
   transform: translate(-1px, -2px);
 }
 
-#search-button:active {
+.search-button:active {
   transform: translate(1px, 1px);
 }
 
