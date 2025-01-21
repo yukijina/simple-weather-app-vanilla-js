@@ -17,27 +17,7 @@ function searchCity(city) {
   axios.get(url).then(displayResult);
 }
 
-// Format date
-function formattedDate(date) {
-  let days = [
-    'Sunday',
-    'Monday',
-    'Tuesday',
-    'Wednesday',
-    'Thursday',
-    'Friday',
-    'Saturday',
-  ];
-
-  let day = days[date.getDay()];
-  let hour = date.getHours();
-  let minutes = date.getMinutes();
-  minutes < 10 ? (minutes = `0${minutes}`) : minutes;
-
-  return `${day} ${hour}:${minutes} `;
-}
-
-// Render
+// Display to the page
 function displayResult(response) {
   let data = response.data;
   let date = new Date(data.time * 1000);
@@ -58,6 +38,26 @@ function displayResult(response) {
   currentIconEl.alt = data.condition.icon;
 
   currentTime.innerHTML = formattedDate(date);
+}
+
+// Format date
+function formattedDate(date) {
+  let days = [
+    'Sunday',
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday',
+  ];
+
+  let day = days[date.getDay()];
+  let hour = date.getHours();
+  let minutes = date.getMinutes();
+  minutes < 10 ? (minutes = `0${minutes}`) : minutes;
+
+  return `${day} ${hour}:${minutes} `;
 }
 
 // Click button
