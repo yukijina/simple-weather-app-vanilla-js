@@ -38,21 +38,28 @@
       <!-- Current weather -->
       <main class="current-weather-container">
         <div class="left-box">
-          <h2 class="current-city">Paris</h2>
-          <p><span>Day</span> <span>Time</span>, <span>Details</span></p>
+          <h2 class="current-city"></h2>
+          <p>
+            <span class="day-and-time"></span>,
+            <span class="current-condition"></span>
+          </p>
           <p>
             Humidity:
             <span class="humidity-wrap"
-              ><span class="current-humidity">xx</span>%</span
+              ><span class="current-humidity"></span>%</span
             >, Wind:
             <span class="wind-wrap"
-              ><span class="current-wind">xx</span>km/h</span
+              ><span class="current-wind"></span>km/h</span
             >
           </p>
         </div>
 
         <div class="right-box">
-          <div class="current-icon">☀️</div>
+          <img
+            src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-day.png"
+            alt="broken-clouds-night"
+            class="current-icon"
+          />
           <p class="current-temperature">13</p>
           <p>°C</p>
         </div>
