@@ -35,8 +35,14 @@ body {
   justify-content: center;
 }
 
-.title-icon {
+.icon-container {
   display: inline-block;
+  width: 40px;
+  margin-right: 5px;
+}
+
+.title-icon {
+  width: 100%;
 }
 
 h1 {
@@ -45,6 +51,7 @@ h1 {
   font-size: 36px;
 }
 
+/* Input Form */
 .form-container {
   display: flex;
   justify-content: space-between;
@@ -94,6 +101,7 @@ h1 {
 
 .right-box {
   display: flex;
+  align-items: center;
 }
 
 .current-temperature {
@@ -101,13 +109,15 @@ h1 {
   font-weight: 800;
 }
 
+.current-unit {
+  margin-bottom: 26px;
+  margin-left: 3px;
+}
+
 .humidity-wrap,
 .wind-wrap {
   color: #f65281;
   font-weight: 800;
-}
-
-.current-icon {
 }
 
 /* Footer */
