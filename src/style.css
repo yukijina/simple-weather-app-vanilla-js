@@ -120,6 +120,27 @@ h1 {
   font-weight: 800;
 }
 
+/* Forecast */
+.forecast-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.forecast-day,
+.forecase-temperature {
+  text-align: center;
+}
+
+.forecase-temperature p {
+  display: inline-block;
+  color: #f65281;
+  font-weight: 800;
+}
+
+.forecase-temperature p:nth-child(2) {
+  opacity: 65%;
+  margin-left: 2px;
+}
 /* Footer */
 .footer-container {
   margin-top: 60px;
