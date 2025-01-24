@@ -8,6 +8,7 @@ function getInputValue(event) {
   event.preventDefault();
   let city = document.querySelector('#search-input').value;
   searchCity(city);
+  searchForecast(city);
 }
 
 // API
@@ -65,3 +66,39 @@ searchForm.addEventListener('submit', getInputValue);
 
 // Default city when the page is loaded
 searchCity('San Francisco');
+//searchForecast('San Francisco');
+
+// Inject HTML from JS
+function displayForecast() {
+  let forecastHTML = '';
+  let forecastDays = ['Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  let forecastContainer = document.querySelector('#forecast');
+
+  forecastDays.forEach(function (day) {
+    forecastHTML += `
+  <div class="day-container">
+  <p class="forecast-day">${day}</p>
+  <div class="forecast-img-container">
+    <img
+      src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-day.png"
+      alt=""
+    />
+  </div>
+  <div class="forecase-temperature">
+    <p>15°C</p>
+    <p>15°C</p>
+  </div>
+</div>
+`;
+  });
+  forecastContainer.innerHTML = forecastHTML;
+}
+
+displayForecast();
+// Forecast API
+
+// function searchForecast(city) {
+//   let url = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}`;
+
+//   axios.get(url).then();
+// }
