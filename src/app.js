@@ -7,19 +7,19 @@ let searchForm = document.querySelector('.form-container');
 function getInputValue(event) {
   event.preventDefault();
   let city = document.querySelector('#search-input').value;
-  searchCity(city);
-  searchForecast(city);
+  getCity(city);
+  getForecast(city);
 }
 
 // API
-function searchCity(city) {
+function getCity(city) {
   let url = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
 
-  axios.get(url).then(displayResult);
+  axios.get(url).then(displayCurrentWeather);
 }
 
 // Display to the page
-function displayResult(response) {
+function displayCurrentWeather(response) {
   let data = response.data;
   let date = new Date(data.time * 1000);
   let currentCityEl = document.querySelector('.current-city');
@@ -65,11 +65,12 @@ function formattedDate(date) {
 searchForm.addEventListener('submit', getInputValue);
 
 // Default city when the page is loaded
-searchCity('San Francisco');
-//searchForecast('San Francisco');
+getCity('San Francisco');
+getForecast('San Francisco');
 
 // Inject HTML from JS
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastHTML = '';
   let forecastDays = ['Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
   let forecastContainer = document.querySelector('#forecast');
@@ -94,11 +95,10 @@ function displayForecast() {
   forecastContainer.innerHTML = forecastHTML;
 }
 
-displayForecast();
 // Forecast API
 
-// function searchForecast(city) {
-//   let url = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}`;
+function getForecast(city) {
+  let url = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}`;
 
-//   axios.get(url).then();
-// }
+  axios.get(url).then(displayForecast);
+}
