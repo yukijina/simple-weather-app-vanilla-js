@@ -38,11 +38,11 @@ function displayCurrentWeather(response) {
   currentIconEl.src = data.condition.icon_url;
   currentIconEl.alt = data.condition.icon;
 
-  currentTime.innerHTML = formattedDate(date);
+  currentTime.innerHTML = formatCurrentDate(date);
 }
 
 // Format date
-function formattedDate(date) {
+function formatCurrentDate(date) {
   let days = [
     'Sunday',
     'Monday',
@@ -68,37 +68,45 @@ searchForm.addEventListener('submit', getInputValue);
 getCity('San Francisco');
 getForecast('San Francisco');
 
-// Inject HTML from JS
+// Format corecast day
+function formatForecastDate(data) {
+  let days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  let date = new Date(data.time * 1000);
+  return days[date.getDay()];
+}
+
+// Forecast weather. Inject HTML from JS
 function displayForecast(response) {
   console.log(response.data.daily);
+  let forecastData = response.data.daily;
   let forecastHTML = '';
-  let forecastDays = ['Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
   let forecastContainer = document.querySelector('#forecast');
 
-  forecastDays.forEach(function (day) {
-    forecastHTML += `
+  forecastData.forEach(function (data, index) {
+    if (index > 0 && index < 6) {
+      forecastHTML += `
   <div class="day-container">
-  <p class="forecast-day">${day}</p>
+  <p class="forecast-day">${formatForecastDate(data)}</p>
   <div class="forecast-img-container">
     <img
-      src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-day.png"
-      alt=""
+      src=${data.condition.icon_url}
+      alt=${data.condition.icon}
     />
   </div>
   <div class="forecase-temperature">
-    <p>15°C</p>
-    <p>15°C</p>
+    <p>${Math.round(data.temperature.maximum)}°C</p>
+    <p>${Math.round(data.temperature.minimum)}°C</p>
   </div>
 </div>
 `;
+    }
   });
   forecastContainer.innerHTML = forecastHTML;
 }
 
 // Forecast API
-
 function getForecast(city) {
   let url = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}`;
-
+  console.log(url);
   axios.get(url).then(displayForecast);
 }
